@@ -54,9 +54,6 @@ function initializePage() {
 	})
 
 	$('#newPhotoSubmitButton').click(function(e) {
-		var newPhotoTitle = $('#newPhotoForm #photoName').val();
-		var newPhotoURL = $('#newPhotoForm #photoURL').val();
-		var newPhotoTags = $('#newPhotoForm #photoTags').val();
 
 		var form_entered = {
 			'title': $('#newPhotoForm #photoName').val(),
@@ -64,8 +61,8 @@ function initializePage() {
 			'image': $('#newPhotoForm #photoURL').val()
 		};
 
-		$.post('/addphoto/addsubmit', form_entered, function(){
-			window.location.href = '/main';
+		$.post('/addphoto/addsubmit', form_entered, function(data){
+			window.location.href = data;
 		});
 	});
 }

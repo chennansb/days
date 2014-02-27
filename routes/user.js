@@ -103,7 +103,7 @@ exports.addPhotoSubmit = function (req, res) {
 
   function afterSaving(err){
     if (err){console.log(err); res.send(500);}
-    console.log('Your phot is saved');
+    console.log('Your photo is saved');
     res.send('/main');
   }
 }
