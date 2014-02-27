@@ -25,8 +25,11 @@ exports.mainView = function(req, res){
 
 exports.signupView = function(req, res){
     res.render('signup');
-}
+};
 
 exports.forgetView = function (req, res){
 	res.render('forget');
-}
+};
+exports.helpView = function (req, res){
+    res.render('help');
+};
