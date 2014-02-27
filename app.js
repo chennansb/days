@@ -50,14 +50,6 @@ app.post('/authorization', user.authorization);
 app.get('/forget', index.forgetView);
 app.post('/addphoto/addsubmit', user.addPhotoSubmit)
 app.get('/addphoto', user.addPhoto);
-//app.get('/project/:id', project.projectInfo);
-
-//app.get('/users', user.addUser);
-app.get('/project', index_project.view);
-app.get('/project/:id', project.projectInfo);
-
-// Example route
-// app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
