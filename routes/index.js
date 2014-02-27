@@ -33,3 +33,6 @@ exports.forgetView = function (req, res){
 exports.helpView = function (req, res){
     res.render('help');
 };
+exports.setView = function (req, res){
+    res.render('set');
+};

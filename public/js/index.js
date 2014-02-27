@@ -57,6 +57,10 @@ function initializePage() {
 		window.location.href = '/help';
 	});
 
+	$('#setButton').click(function(e) {
+		window.location.href = '/set';
+	});
+
 	$('#newPhotoSubmitButton').click(function(e) {
 
 		var form_entered = {

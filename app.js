@@ -51,6 +51,7 @@ app.get('/forget', index.forgetView);
 app.post('/addphoto/addsubmit', user.addPhotoSubmit);
 app.get('/addphoto', user.addPhoto);
 app.get('/help', index.helpView);
+app.get('/set', index.setView);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
