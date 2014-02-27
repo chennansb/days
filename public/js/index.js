@@ -51,7 +51,11 @@ function initializePage() {
 
 	$('#addPhotoButton').click(function(e) {
 		window.location.href = '/addphoto';
-	})
+	});
+
+	$('#helpButton').click(function(e) {
+		window.location.href = '/help';
+	});
 
 	$('#newPhotoSubmitButton').click(function(e) {
 
