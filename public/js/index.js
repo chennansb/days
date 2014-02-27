@@ -30,10 +30,10 @@ function initializePage() {
 		var retypedPassword = $('#signup-form #retypePW').val();
 
 		var form_entered = {
-			'Name': newUsername,
-			'Email': newUserEmail,
-			'password': newPassword,
-			'retypedPassword': retypedPassword
+			'Name': $('#signup-form #newName').val(),
+			'Email': $('#signup-form #newEmail').val(),
+			'password': $('#signup-form #newPW').val(),
+			'retypedPassword': $('#signup-form #retypePW').val()
 		};
 
 		$.post('/signup/addUser', form_entered, function(data){
@@ -51,9 +51,21 @@ function initializePage() {
 
 	$('#addPhotoButton').click(function(e) {
 		window.location.href = '/addphoto';
-	});
-	$('#helpButton').click(function(e) {
-		window.location.href = '/help';
-	});
+	})
 
+	$('#newPhotoSubmitButton').click(function(e) {
+		var newPhotoTitle = $('#newPhotoForm #photoName').val();
+		var newPhotoURL = $('#newPhotoForm #photoURL').val();
+		var newPhotoTags = $('#newPhotoForm #photoTags').val();
+
+		var form_entered = {
+			'title': $('#newPhotoForm #photoName').val(),
+			'summary': $('#newPhotoForm #photoTags').val(),
+			'image': $('#newPhotoForm #photoURL').val()
+		};
+
+		$.post('/addphoto/addsubmit', form_entered, function(){
+			window.location.href = '/main';
+		});
+	});
 }

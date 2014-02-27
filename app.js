@@ -48,8 +48,8 @@ app.get('/signup', index.signupView);
 app.post('/signup/addUser', user.addUser);
 app.post('/authorization', user.authorization);
 app.get('/forget', index.forgetView);
+app.post('/addphoto/addsubmit', user.addPhotoSubmit)
 app.get('/addphoto', user.addPhoto);
-app.get('/help',index.helpView);
 //app.get('/project/:id', project.projectInfo);
 
 //app.get('/users', user.addUser);
