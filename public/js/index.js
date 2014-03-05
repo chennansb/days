@@ -29,6 +29,12 @@ function initializePage() {
 		var newPassword = $('#signup-form #newPW').val();
 		var retypedPassword = $('#signup-form #retypePW').val();
 
+ 		if (newPassword !== retypedPassword){
+    		alert('Your retyped password does not match');
+    		return;
+  		}
+
+
 		var form_entered = {
 			'Name': $('#signup-form #newName').val(),
 			'Email': $('#signup-form #newEmail').val(),

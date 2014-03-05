@@ -39,12 +39,14 @@ exports.addUser = function(req, res) {
 
   var form_data = req.body;
   console.log(form_data);
-/*
-  if (form_data.newPassword != form_data.retypedPassword){
-    res.send('Password not consistent');
+
+  if (form_data.password !== form_data.retypedPassword){
+    alert('WOW');
+    res.send('/');
+    console.log('returning');
     return;
+    console.log('returned');
   }
-*/
 
   //
   //Chen Nan shuo: 
@@ -70,7 +72,7 @@ exports.addUser = function(req, res) {
 
   function afterSaving(err){
     if (err){console.log(err); res.send(500);}
-    res.send('/');
+    res.send('/main');
   }
 }
 
