@@ -79,4 +79,18 @@ function initializePage() {
 			window.location.href = data;
 		});
 	});
+
+	$('#signoutButton').click(function(e) {
+		req.session.loggedin = false;
+      	req.session.userID = null;
+	});
+
+	$('#homeButton').click(function(e) {
+		if (req.session.loggedin == false){
+			window.location.href = '/index';
+		}
+		else{
+			window.location.href = '/main';
+		}
+	});
 }
