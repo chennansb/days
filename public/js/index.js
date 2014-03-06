@@ -94,3 +94,9 @@ function initializePage() {
 		}
 	});
 }
+
+
+function sendAnalytics(e) {
+	e.preventDefault();
+	ga("send", "event", "Category", "Action");
+}
