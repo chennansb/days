@@ -60,9 +60,22 @@ p {
   50% { background-color: #6282ED; -webkit-box-shadow: 0 0 18px #1A3509; }
   to { background-color: #2EE4E7; -webkit-box-shadow: 0 0 9px #333; }
 }
+#w-nav li {
+float: left;
+    position: relative;
+}
 @media (max-width: 479px) {
   body {
     background-color: #ECF6CE;
+  }
+  .icon-home:before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: "";
+  background: url(http://i.imgur.com/1CRy2G5.png);
+  width: 24px;
+  height: 24px;
   }
   .button {
   -webkit-animation-name: greenPulse;
