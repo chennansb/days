@@ -61,30 +61,60 @@
       <label for="photoURL">Photo URL</label>
       <input type="text" class="form-control" id="photoURL" placeholder="http://www.example.com/really_cool_image.jpg">
 
-<!--
-      <div id="upload-area">
-        <div id="preview">
-          <img width="100px" height="100px" src="http://cdn.css-tricks.com/images/icons/128px/zurb.png" id="thumb">
-        </div>
-
-        <form action="/playground/ajax_upload" id="newHotnessForm">
-          <label>Upload a Picture</label>
-          <input type="file" size="20" id="imageUpload" class=" ">
-          <button class="button" type="submit">Save</button>
-        </form>
-      </div>
-
-    </div>
--->
-
     <div class="form-group">
       <label for="summary">Tags</label>
       <textarea type="text" class="form-control" id="photoTags" rows="3" placeholder="#Happy #love"></textarea>
     </div>
-    <button id="newPhotoSubmitButton" type="button" class="myButton">Submit</button>
+
+    <button id="newPhotoSubmitButton" type="button" class="myButton">Upload</button>
   </form>
 
 	</div>
+    <p id="demo">Click the button to get your position: will include location information in your photo in the next release.</p>
+    <button onclick="getLocation()" class="myButton">Try It</button>
+    <div id="mapholder"></div>
+  <script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+
+function showPosition(position)
+  {
+  var latlon=position.coords.latitude+","+position.coords.longitude;
+
+  var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+  +latlon+"&zoom=14&size=400x300&sensor=false";
+  document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+
+function showError(error)
+  {
+  switch(error.code) 
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="An unknown error occurred."
+      break;
+    }
+  }
+</script>
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
