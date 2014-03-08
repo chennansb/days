@@ -36,3 +36,7 @@ exports.helpView = function (req, res){
 exports.setView = function (req, res){
     res.render('set');
 };
+
+exports.helpIndexView = function (req, res) {
+    res.render('help_index');
+};

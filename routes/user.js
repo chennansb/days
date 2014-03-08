@@ -76,7 +76,7 @@ exports.addPhotoSubmit = function (req, res) {
   var form_body = req.body;
   
   var date = new Date();
-  console.log('date: ' + date);
+  date.setUTCHours(13);
 
   var photoTitle;
   if (req.body.title == null)
@@ -87,7 +87,7 @@ exports.addPhotoSubmit = function (req, res) {
   var newData = {
     'userID': req.session.userID,
     'title': form_body.title,
-    'date': new Date(),
+    'date': date,
     'summary': form_body.summary,
     'image': form_body.image
   };
